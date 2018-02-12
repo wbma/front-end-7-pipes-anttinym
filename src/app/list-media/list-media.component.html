@@ -9,7 +9,7 @@
   <h1>Feed</h1>
 <ul class="card-deck">
   <li class="card" *ngFor="let media of mediaArray">
-    <img class="card-img-top" [src]="mediaService.mediaUrl + thumbnailer(media.filename)">
+    <img class="card-img-top" [src]="mediaService.mediaUrl + (media.filename | thumbnail: 'large')">
     <h4 class="card-title">{{media.title}}</h4>
     <p class="card-text">{{media.description}}</p>
   </li>

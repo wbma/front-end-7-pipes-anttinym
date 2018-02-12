@@ -5,8 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ThumbnailPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return null;
+  transform(filename: string, args?: string): string {
+
+    const imgSize = {
+      small: '-tn160.png',
+      medium: '-tn320.png',
+      large: '-tn640.png'
+    };
+
+    if (args) { return filename.split('.')[0] + imgSize[args]; }
+
+    return filename.split('.')[0] + imgSize.small;
   }
 
 }
